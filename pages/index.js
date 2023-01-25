@@ -1,14 +1,22 @@
-import React  from "react";
-import Contact from "../components/Contact";
-import Home from "../components/Home";
-import MyComponent from "../components/MyComponent";
+import Link from "next/link";
 
-const IndexPage=()=>{
+function Home(){
   return(
     <div>
-      <Home/>
+      <Link href="/about">
+        <div>About</div>
+      </Link>
+
+      <Link href="/home">
+        <div>Home</div>
+      </Link>
+      <Link href="/contact">
+        <div>Contact</div>
+      </Link>
+
+      <p>Home Page</p>
     </div>
   )
 }
 
-export default IndexPage;
+export default Home;
