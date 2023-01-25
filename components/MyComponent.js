@@ -1,18 +1,10 @@
-import React from 'react'
-
-export default function MyComponent() {
-  return (
+import React from 'react';
+const MyComponent=({props})=>{
+  return(
     <div>
-      <h1>Hello World</h1>
-      <p className="my-paragraph">This is my component</p>
-      <style jsx>{`
-        .my-paragraph {
-          color: red;
-          font-size: 20px;
-        }
-      `}</style>
+      <h1>This is A custom Component</h1>
     </div>
   )
 }
 
-
+export default MyComponent;
