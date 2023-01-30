@@ -1,68 +1,82 @@
-// // import styled from "styled-components"
-
-
-// // const Title = styled.h1`
-// //   font-size: 1.5em;
-// //   text-align: center;
-// //   color: red;
-// // `;
-
-// // const Wrapper = styled.section`
-// //   padding: 20px;
-// //   width: 500px;
-// //   margin:200px;
-// //   background: blue;
-// // `;
-
-
-// // function HomePage(){
-// //   return(
-// //     <Wrapper>
-// //      <Title>Hello Buddy</Title>
-// //     </Wrapper>
-// //   )
-// // }
-
-// // export default HomePage;
-
-
-// function MyComponent(){
+// import axios from "axios";
+// //fetch the data with the helps of props
+// function Users({users}){
 // return(
-//   <div>
-//     <p className="my-class">Hello World</p>
-//      <button className="btn">Submit</button>
-//     <style jsx>{`
-//     .my-class{
-//       font-size:30px;
-//       color:red;
-//       font-weight:bold;
-//       background-color:yellow;
-//       width:800px;
-//       padding:100px;
-//     }
-//     .btn{
-//       padding:20px;
-//       background-color:green;
-//       cursor:pointer;
-//       outline:none;
-//       margin:5px;
-//       font-size:20px;
-//     }
-//     `}</style>
-//   </div>
+//   <ol>
+//     {users.map((user)=>(
+//       <li key={user.id}>
+//        {user.name}   
+//        {user.email}
+//        </li>
+//     ))}
+//   </ol>
 // )
 // }
-// export default MyComponent;
+// //Logic to fetch the data
+// export async function getServerSideProps(){
+//   const {data:users}=await axios.get("https://jsonplaceholder.typicode.com/users");
+//   return{
+//     props:{
+//       users,
+//     }
+//   };
+// }
+// export default Users;
 
-import Title from "../components/styles.js";
 
 
-function MyComponent(){
+// import {getStaticProps} from "next";
+
+// export async  function getStaticProps(){
+//   const res=await fetch('https://jsonplaceholder.typicode.com/posts');
+//   const posts=await res.json();
+//   //return the posts data as props 
+//   return {props:{posts}}
+// }
+
+// const Page=(props)=>{
+//   const {posts}=props;
+//   return(
+//     <ul>
+//       {posts.map((post)=>(
+//         <li key={post.id}>
+//           <h2>{post.title}</h2>
+//           <p>{post.body}</p>
+//         </li>
+        
+//       ))}
+//     </ul>
+//   )
+// }
+
+// export default Page;
+
+
+import Head from 'next/head';
+
+function HomPage(){
   return(
-    <div>
-      <Title>Hello Shital.You are Learning Styled jsx</Title>
-    </div>
+    <>
+      <Head>
+      <title>My Next.js Website</title>
+      <meta name="description" content="A great website using next.js" />
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      </Head>
+      <h1>Welcome to My Website </h1>
+    </>
   )
 }
+export default HomPage;
 
-export default MyComponent;
+
+
+
+
+
+
+
+
+
+
+
+
