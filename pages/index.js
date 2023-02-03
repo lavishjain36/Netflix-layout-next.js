@@ -1,15 +1,20 @@
-import React from 'react';
+import Layout from '../components/Layout'
+import Link from 'next/link'
+import movies from './data/movie'
 
-const Product = ({ id }) => {
-  return (
-    <div>
-      <h1>Product {id}</h1>
-    </div>
-  );
-};
+const Home = () => (
+  <Layout>
+    <section>
+      {movies.map((movie) => (
+        <Link legacyBehavior key={movie.id} href="/[id]" as={`/${movie.id}`}>
+          <a>
+            <img src={movie.poster} alt={movie.title} width="100%" />
+            <h2>{movie.title}</h2>
+          </a>
+        </Link>
+      ))}
+    </section>
+  </Layout>
+)
 
-Product.getInitialProps = ({ query }) => {
-  return { id: query.id };
-};
-
-export default Product;
+export default Home
